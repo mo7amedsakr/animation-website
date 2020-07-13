@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 
@@ -34,27 +34,26 @@ export const NavigationIcon: FC<NavigationIconProps> = (props) => {
     transformOrigin: '30% 30%',
   }));
 
+  useEffect(() => {
+    if (props.isOpen) {
+      setLineTop({
+        transform: 'rotate(45deg)',
+      });
+      setLineBottom({
+        transform: 'rotate(-45deg)',
+      });
+    } else {
+      setLineTop({
+        transform: 'rotate(0deg)',
+      });
+      setLineBottom({
+        transform: 'rotate(0deg)',
+      });
+    }
+  }, [props.isOpen, setLineTop, setLineBottom]);
+
   return (
-    <Container
-      onClick={() => {
-        if (props.isOpen) {
-          setLineTop({
-            transform: 'rotate(0deg)',
-          });
-          setLineBottom({
-            transform: 'rotate(0deg)',
-          });
-        } else {
-          setLineTop({
-            transform: 'rotate(45deg)',
-          });
-          setLineBottom({
-            transform: 'rotate(-45deg)',
-          });
-        }
-        return props.click();
-      }}
-    >
+    <Container onClick={props.click}>
       <Line first="true" style={lineTop} />
       <Line style={lineBottom} />
     </Container>

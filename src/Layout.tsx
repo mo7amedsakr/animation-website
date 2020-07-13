@@ -23,7 +23,7 @@ export const Layout: FC<LayoutProps> = (props) => {
       <NavigationIcon click={toggleNav} isOpen={isNavOpen} />
 
       <Transition in={isNavOpen} timeout={1000} mountOnEnter unmountOnExit>
-        {() => <Navigation isOpen={isNavOpen} />}
+        {() => <Navigation isOpen={isNavOpen} close={toggleNav} />}
       </Transition>
 
       <Main>{props.children}</Main>

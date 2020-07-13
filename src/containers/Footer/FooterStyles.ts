@@ -17,6 +17,10 @@ export const Container = styled.div`
 
   h1 {
     font-size: 20rem;
+    font-weight: 400;
+    span {
+      font-weight: 600;
+    }
   }
   ul {
     display: flex;

@@ -4,19 +4,19 @@ import { Header } from './Header/Header';
 import { Horizontal } from './Horizontal/Horizontal';
 // import { Word } from './Word/Word';
 import { Drag } from './Drag/Drag';
-// import { Footer } from './Footer/Footer';
+import { PageAnimation } from '../../components/PageAnimation/PageAnimation';
 
 export interface HomeProps {}
 
 export const Home: FC<HomeProps> = (props) => {
   return (
     <>
+      <PageAnimation title="Home" />
       <Header />
       {/* <Wave /> */}
       <Horizontal />
       {/* <Word /> */}
       <Drag />
-      {/* <Footer /> */}
     </>
   );
 };

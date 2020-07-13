@@ -17,6 +17,7 @@ import Photo2 from '../../assets/reform-collective-ultra-2.svg';
 
 export interface NavigationProps {
   isOpen: boolean;
+  close: () => void;
 }
 
 export const Navigation: FC<NavigationProps> = (props) => {
@@ -87,7 +88,9 @@ export const Navigation: FC<NavigationProps> = (props) => {
         <MainUL>
           {trail.map((animationProps, i) => (
             <MainLI style={animationProps} key={pages[i].text}>
-              <Link to={`/${pages[i].to}`}>{pages[i].text}</Link>
+              <Link to={`/${pages[i].to}`} onClick={props.close}>
+                {pages[i].text}
+              </Link>
             </MainLI>
           ))}
         </MainUL>

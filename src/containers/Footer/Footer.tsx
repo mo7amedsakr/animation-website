@@ -9,7 +9,7 @@ export const Footer: FC<FooterProps> = (props) => {
       <FixedContainer>
         <h1>
           Don't be shy,
-          <br /> say hi.
+          <br /> <span>say hi.</span>
         </h1>
         <ul>
           <li>
