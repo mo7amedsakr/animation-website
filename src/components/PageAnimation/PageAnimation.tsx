@@ -8,7 +8,7 @@ export interface PageAnimationProps {
 }
 
 export const PageAnimation: FC<PageAnimationProps> = (props) => {
-  const [render, serRender] = useState(true);
+  const [render, setRender] = useState(true);
 
   const containerAnimation = useSpring({
     config: {
@@ -35,16 +35,20 @@ export const PageAnimation: FC<PageAnimationProps> = (props) => {
   });
 
   useEffect(() => {
+    let isMounted = true;
     const time = setTimeout(() => {
-      serRender(false);
+      if (isMounted) {
+        setRender(false);
+      }
     }, 2000);
     return () => {
       clearTimeout(time);
+      isMounted = false;
     };
   }, []);
 
   return (
-    <Transition mountOnEnter unmountOnExit timeout={1} in={render}>
+    <Transition mountOnEnter unmountOnExit timeout={1000} in={render}>
       {() => (
         <Container style={containerAnimation}>
           <Title style={titleAnimation}>{props.title}</Title>
