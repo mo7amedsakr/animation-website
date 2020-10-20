@@ -2,6 +2,6 @@
 
 Animation focused project to try:
 * react-spring.
-* style-components.
+* styled-components.
 * Horizontal Scroll.
 * Custom cursor.
